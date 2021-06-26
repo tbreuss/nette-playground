@@ -9,6 +9,7 @@ services:
         - PHP_IMAGE=8.0-alpine
     environment:
       - docroot=www
+      - DEBUG_MODE=true
     ports:
       - "8000:8000"
     volumes:
