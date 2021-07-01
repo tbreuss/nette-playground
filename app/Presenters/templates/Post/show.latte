@@ -1,7 +1,8 @@
 {block content}
 
 <p><a n:href="Homepage:default">← back to posts list</a></p>
-<p><a n:href="edit $post->id">Edit this post</a></p>
+
+<p n:if="$user->isLoggedIn()"><a n:href="edit $post->id">Edit this post</a></p>
 
 <div class="date">{$post->created_at|date:'F j, Y'}</div>
 

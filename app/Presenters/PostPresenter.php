@@ -89,8 +89,19 @@ class PostPresenter extends Nette\Application\UI\Presenter
         $this->redirect('show', $post->id);
     }
 
+    public function actionCreate(): void
+    {
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Sign:in');
+        }
+    }
+
     public function actionEdit(int $postId): void
     {
+        if (!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Sign:in');
+        }
+
         $post = $this->database->table('posts')->get($postId);
         if (!$post) {
             $this->error('Post not found');

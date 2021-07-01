@@ -2,7 +2,7 @@
 
 <h1 n:block="title">My blog</h1>
 
-<p><a n:href="Post:create">Write new post</a></p>
+<p n:if="$user->isLoggedIn()"><a n:href="Post:create">Write new post</a></p>
 
 <div n:foreach="$posts as $post" class="post">
     <div class="date">{$post->created_at|date:'F j, Y'}</div>
